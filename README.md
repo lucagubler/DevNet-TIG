@@ -12,4 +12,7 @@ InfluxDB is a powerful time-series database used to store and query large volume
 Grafana provides helpful dashboards for visualization. These dashboards are interactive and user-friendly. In this setup, Grafana is connected to InfluxDB, enabling real-time analytics and monitoring of data.
 
 ## Usage
-Run `docker-compose up`
+1. Run `docker-compose up`
+2. Login to Grafana `http://localhost`
+  - Username: expert
+  - Password: 1234QWer!
