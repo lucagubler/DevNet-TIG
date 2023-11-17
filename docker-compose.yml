@@ -1,0 +1,47 @@
+version: "3.6"
+services:
+
+  telegraf:
+    image: telegraf:1.19.3
+    container_name: telegraf
+    restart: always
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    depends_on:
+      - influxdb
+    links:
+      - influxdb
+    ports:
+      - 57000:57000
+    environment:
+      - INFLUXDB_TOKEN=secure_token_123
+
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    ports:
+      - 8083:8083
+      - 8086:8086
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=expert
+      - DOCKER_INFLUXDB_INIT_PASSWORD=1234QWer!
+      - DOCKER_INFLUXDB_INIT_ORG=DevNetAcademy
+      - DOCKER_INFLUXDB_INIT_BUCKET=DevNetExpert
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=secure_token_123
+      
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=expert
+      - GF_SECURITY_ADMIN_PASSWORD=1234QWer!
+    links:
+      - influxdb
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/datasources/influxdb.yml:/etc/grafana/provisioning/datasources/influxdb.yml

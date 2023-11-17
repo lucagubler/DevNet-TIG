@@ -1,0 +1,13 @@
+apiVersion: 1
+
+datasources:
+  - name: DevNet_InfluxQL
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    jsonData:
+      dbName: DevNetExpert
+      httpMode: GET
+      httpHeaderName1: "Authorization"
+    secureJsonData:
+      httpHeaderValue1: "Token secure_token_123"
