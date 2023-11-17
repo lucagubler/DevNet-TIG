@@ -14,5 +14,5 @@ Grafana provides helpful dashboards for visualization. These dashboards are inte
 ## Usage
 1. Run `docker-compose up`
 2. Login to Grafana `http://localhost`
-  - Username: expert
-  - Password: 1234QWer!
+    - Username: expert
+    - Password: 1234QWer!
