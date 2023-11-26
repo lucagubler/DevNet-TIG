@@ -16,3 +16,6 @@ Grafana provides helpful dashboards for visualization. These dashboards are inte
 2. Login to Grafana `http://localhost:3000`
     - Username: expert
     - Password: 1234QWer!
+
+# Disclaimer
+I built this TIG stack to go along with my DevNet Expert e-learning. If you're interested in that certification, please check out my e-learning at [DevNet Academy](https://devnet-academy.com)
