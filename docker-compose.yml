@@ -7,12 +7,15 @@ services:
     restart: always
     volumes:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - ./telegraf/server.cert:/etc/telegraf/ssl/server.cert:ro
+      - ./telegraf/server.key:/etc/telegraf/ssl/server.key:ro
     depends_on:
       - influxdb
     links:
       - influxdb
     ports:
       - 57000:57000
+      - 57100:57100
     environment:
       - INFLUXDB_TOKEN=secure_token_123
 
