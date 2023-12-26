@@ -7,8 +7,8 @@ services:
     restart: always
     volumes:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
-      - ./telegraf/server.cert:/etc/telegraf/ssl/server.cert:ro
-      - ./telegraf/server.key:/etc/telegraf/ssl/server.key:ro
+      - ./telegraf/telegraf.crt:/etc/telegraf/telegraf.crt
+      - ./telegraf/telegraf.key:/etc/telegraf/telegraf.key
     depends_on:
       - influxdb
     links:
