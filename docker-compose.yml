@@ -7,15 +7,17 @@ services:
     restart: always
     volumes:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
-      - ./telegraf/telegraf.crt:/etc/telegraf/telegraf.crt
-      - ./telegraf/telegraf.key:/etc/telegraf/telegraf.key
+      # TODO Uncomment these lines if you want to configure grpc-tls
+      # - ./telegraf/telegraf.crt:/etc/telegraf/telegraf.crt
+      # - ./telegraf/telegraf.key:/etc/telegraf/telegraf.key
     depends_on:
       - influxdb
     links:
       - influxdb
     ports:
       - 57000:57000
-      - 57100:57100
+      # TODO Uncomment this lines if you want to configure grpc-tls
+      # - 57100:57100
     environment:
       - INFLUXDB_TOKEN=secure_token_123
 
