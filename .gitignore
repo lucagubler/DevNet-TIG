@@ -1,0 +1,6 @@
+ca.key
+ca.crt
+ca.srl
+telegraf.key
+telegraf.csr
+telegraf.crt
