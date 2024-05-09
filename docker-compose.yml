@@ -8,6 +8,7 @@ services:
     volumes:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       # TODO Uncomment these lines if you want to configure grpc-tls
+      # - ./telegraf/ca.crt:/etc/telegraf/ca.crt
       # - ./telegraf/telegraf.crt:/etc/telegraf/telegraf.crt
       # - ./telegraf/telegraf.key:/etc/telegraf/telegraf.key
     depends_on:

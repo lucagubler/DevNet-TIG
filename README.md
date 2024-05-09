@@ -36,17 +36,20 @@ openssl req -out telegraf.csr -key telegraf.key -new -config csr.conf
 
 # Sign the telegraf certificate with the CA
 openssl x509 -req -in telegraf.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out telegraf.crt -days 3650 -extensions v3_req -extfile csr.conf
+
+# Make sure that the telegraf key has correct permissions
+chmod 644 telegraf.key
 ```
 
 Follow these steps to configure a trustpoint on IOS-XE
 ```
 conf t
-crypto pki trustpoint my-trustpoint
+crypto pki trustpoint devnetacademy
   enrollment terminal
   chain-validation stop
   revocation-check none
   exit
-crypto pki certificate chain my-trustpoint
+crypto pki certificate devnetacademy
   ! Paste content of ca.crt
 ```
 
