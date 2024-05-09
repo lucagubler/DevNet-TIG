@@ -49,7 +49,7 @@ crypto pki trustpoint devnetacademy
   chain-validation stop
   revocation-check none
   exit
-crypto pki certificate devnetacademy
+crypto pki authenticate devnetacademy
   ! Paste content of ca.crt
 ```
 
